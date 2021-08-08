@@ -4,12 +4,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/userRouter');
 
 var app = express();
 
+app.use(cors())
 // eslint-disable-next-line no-undef
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
